@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Appointment | 50 Guaranteed Appointments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --text-main: #0D0F1A;
+            --text-muted: #6B7280;
+            --border-light: #E5E7EB;
+            --btn-black: #0D0F1A;
+            --accent-dark: #090B14;
+            --max-text: 720px;
+            --max-grid: 1100px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: #000000;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* BACKGROUND ANIMATION */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 50%, #ffffff 100%);
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.15;
+            filter: blur(40px);
+        }
+
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #0D0F1A 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #090B14 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            border-radius: 50%;
+            animation: float 25s infinite ease-in-out reverse;
+        }
+
+        .shape-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #0D0F1A 0%, transparent 70%);
+            top: 50%;
+            left: 10%;
+            border-radius: 50%;
+            animation: float 30s infinite ease-in-out;
+        }
+
+        /* ANIMATED GRID BACKGROUND */
+        .grid-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(13, 15, 26, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(13, 15, 26, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: 0 0;
+            animation: gridShift 20s linear infinite;
+        }
+
+        @keyframes gridShift {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        /* ANIMATED PARTICLES */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(13, 15, 26, 0.25);
+            border-radius: 50%;
+            animation: particleFloat 15s infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) translateX(100px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-30px) translateX(30px); }
+            50% { transform: translateY(-60px) translateX(-30px); }
+            75% { transform: translateY(-30px) translateX(30px); }
+        }
+
+        /* ANIMATED LINES */
+        .line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(13, 15, 26, 0.15), transparent);
+            animation: lineSlide 3s infinite;
+        }
+
+        .line-1 {
+            width: 200%;
+            height: 1px;
+            top: 20%;
+            left: -50%;
+            animation: lineSlide 4s infinite ease-in-out;
+        }
+
+        .line-2 {
+            width: 200%;
+            height: 1px;
+            top: 50%;
+            left: -50%;
+            animation: lineSlide 5s infinite ease-in-out reverse;
+        }
+
+        .line-3 {
+            width: 200%;
+            height: 1px;
+            top: 80%;
+            left: -50%;
+            animation: lineSlide 6s infinite ease-in-out;
+        }
+
+        @keyframes lineSlide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* PULSE CIRCLES */
+        .pulse-circle {
+            position: absolute;
+            border: 1px solid rgba(13, 15, 26, 0.15);
+            border-radius: 50%;
+            animation: pulse 4s infinite;
+        }
+
+        .pulse-1 {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            right: 20%;
+            animation: pulse 4s infinite;
+        }
+
+        .pulse-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 15%;
+            animation: pulse 5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.25;
+            }
+        }
+
+        /* URGENCY BAR */
+        .urgency-bar {
+            background: rgba(9, 11, 20, 0.4);
+            color: white;
+            text-align: center;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .timer-box {
+            background: rgba(255,255,255,0.15);
+            padding: 4px 12px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(13, 15, 26, 0.1);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(30px);
+            position: sticky;
+            top: 49px;
+            z-index: 1000;
+        }
+        .logo-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #000000;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .nav-cta {
+            background: var(--accent-dark);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* HERO */
+        section { padding: 100px 24px; }
+        .container-text { max-width: var(--max-text); margin: 0 auto; text-align: center; }
+        .container-grid { max-width: var(--max-grid); margin: 0 auto; }
+        h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; color: #000000; }
+
+        .hero { padding: 120px 24px 80px; text-align: center; }
+        .hero h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); margin-bottom: 12px; animation: fadeInUp 0.8s ease-out; }
+        .hero h1 span { color: var(--text-muted); display: block; font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-top: 10px; }
+        .hero p { margin: 24px auto 36px; font-size: 1.15rem; color: var(--text-muted); max-width: 560px; animation: fadeInUp 0.8s ease-out 0.2s both; }
+        
+        .btn-black {
+            background: var(--btn-black);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        .btn-black:hover { transform: translateY(-2px); }
+
+        .hero-target {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: #F9FAFB;
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--border-light);
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* COMPARISON SECTION */
+        .comparison-section { background: white; padding: 100px 24px; }
+        .comparison-intro { max-width: var(--max-text); margin: 0 auto 32px; text-align: center; }
+        .comparison-intro p { font-size: 1.1rem; color: #000000; font-weight: 600; margin-bottom: 40px; }
+
+        .table-wrapper { overflow-x: auto; margin-bottom: 60px; border-radius: 12px; border: 1px solid var(--border-light); background: white; }
+        table { width: 100%; border-collapse: collapse; min-width: 640px; }
+        th, td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border-light); font-size: 0.95rem; color: #000000; }
+        th { background: #F3F4F6; font-weight: 700; }
+        .edge-col-head { background: var(--accent-dark) !important; color: white !important; }
+        .edge-col-data { font-weight: 700; }
+
+        .comparison-grid {
+            max-width: var(--max-grid);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .comparison-card {
+            background: #F9FAFB;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-align: left;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .comparison-card.edge {
+            background: var(--accent-dark);
+            color: white;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .comparison-card h3 { font-size: 1.1rem; margin-bottom: 16px; color: #000000; }
+        .comparison-card.edge h3 { color: white; }
+        .comparison-card p { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
+        .comparison-card.edge p { color: rgba(255,255,255,0.8); }
+
+        /* PROCESS */
+        .process-section { background: white; padding: 100px 24px; border-top: 1px solid var(--border-light); }
+        .process-section .container-text { margin-bottom: 60px; }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: var(--max-grid);
+            margin: 0 auto;
+        }
+        .process-card {
+            background: #F9FAFB;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 32px 28px;
+            text-align: left;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .process-card:nth-child(1) { animation-delay: 0s; }
+        .process-card:nth-child(2) { animation-delay: 0.1s; }
+        .process-card:nth-child(3) { animation-delay: 0.2s; }
+        .process-card:nth-child(4) { animation-delay: 0.3s; }
+        .process-card:nth-child(5) { animation-delay: 0.4s; }
+        .process-card:nth-child(6) { animation-delay: 0.5s; }
+
+        .step-num {
+            width: 44px; height: 44px;
+            background: var(--accent-dark);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .process-card h4 { font-weight: 800; margin-bottom: 8px; font-size: 1rem; color: #000000; }
+        .step-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* CALENDAR SECTION */
+        .cal-section { 
+            border-top: 1px solid var(--border-light); 
+            background: linear-gradient(135deg, #ffffff 0%, rgba(249, 250, 251, 0.5) 100%);
+            position: relative;
+        }
+        .cal-section h2 {
+            animation: slideInDown 0.8s ease-out;
+        }
+        .cal-embed-wrap {
+            margin-top: 40px;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            height: 700px;
+            background: #fdfdfd;
+            animation: slideInUp 0.8s ease-out;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cal-embed-wrap:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* FAQ */
+        #faq { background: #F9FAFB; border-top: 1px solid var(--border-light); }
+        .faq-list { margin-top: 40px; max-width: 780px; margin-left: auto; margin-right: auto; text-align: left; }
+        .faq-item { background: white; border-radius: 8px; margin-bottom: 10px; border: 1px solid var(--border-light); }
+        .faq-question { padding: 22px 24px; display: flex; justify-content: space-between; cursor: pointer; font-weight: 700; font-size: 0.95rem; color: #000000; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .faq-answer p { padding: 0 24px 22px; font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; }
+
+        @media (max-width: 768px) {
+            .nav-links { flex-direction: column; gap: 12px; }
+            .process-grid { grid-template-columns: 1fr; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .cal-embed-wrap { height: 900px; }
+            nav { flex-direction: column; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="animated-bg">
+    <div class="grid-animation"></div>
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+    <div class="pulse-circle pulse-1"></div>
+    <div class="pulse-circle pulse-2"></div>
+    <div id="particles-container"></div>
+</div>
+
+<div class="urgency-bar">
+    FREE CONSULTATION ACCESS CLOSES IN
+    <div class="timer-box" id="timer">23:00:00</div>
+</div>
+
+<nav>
+    <a href="#" class="logo-text">Edge Appointment</a>
+    <div class="nav-links">
+        <a href="#results">Why Us</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="nav-cta">Book a Call</a>
+        <a href="tel:+918279323043" class="nav-cta">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container-text">
+        <h1>Fill Your Calendar<span>With 50 Qualified Appointments Guaranteed</span></h1>
+        <p>We help real estate agents get 50 pre-qualified buyer appointments in 60 days. No fluff, no guesses — purely performance-based execution.</p>
+        <a href="#contact" class="btn-black">Book a Call →</a><br>
+        <div class="hero-target">Tired of chasing Unqualified leads and price sensitive buyers? Don't worry book a call for a solution</div>
+    </div>
+</section>
+
+<section id="results" class="comparison-section">
+    <div class="comparison-intro">
+        <h2>You're Not Paying For Clicks.<br>You're Paying For Conversations.</h2>
+        <p>Most agencies charge for marketing and walk away. We charge for results — qualified people sitting in your calendar, ready to buy.</p>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:20%;">Feature</th>
+                    <th style="width:26%;">Traditional Agency</th>
+                    <th style="width:27%;">Lead Gen Agency</th>
+                    <th class="edge-col-head" style="width:27%;">Edge Appointment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>What you pay for</td><td>Ad spend + monthly fee</td><td>Cost per lead</td><td class="edge-col-data">Booked appointments</td></tr>
+                <tr><td>What you get</td><td>Traffic & impressions</td><td>A list of contacts</td><td class="edge-col-data">Qualified calls in your calendar</td></tr>
+                <tr><td>Lead quality</td><td>Unknown</td><td>Unverified</td><td class="edge-col-data">Pre-qualified against your criteria</td></tr>
+                <tr><td>Conversation handling</td><td>No</td><td>No</td><td class="edge-col-data">Yes — we handle everything</td></tr>
+                <tr><td>Guarantee</td><td>None</td><td>None</td><td class="edge-col-data">50 Appointments Guaranteed</td></tr>
+                <tr><td>Your job</td><td>Figure out the rest</td><td>Chase & qualify yourself</td><td class="edge-col-data">Show up and close</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="comparison-grid">
+        <div class="comparison-card">
+            <h3>The Old Way</h3>
+            <p>Chasing unverified leads, spending hours on the phone with tire-kickers, and paying monthly retainers for "visibility" instead of actual revenue.</p>
+        </div>
+        <div class="comparison-card edge">
+            <h3>The Edge Way</h3>
+            <p>Every lead is pre-vetted against your criteria. We handle objections and confirmations. You only focus on the qualified prospects sitting in your calendar.</p>
+        </div>
+    </div>
+</section>
+
+<section id="process" class="process-section">
+    <div class="container-text">
+        <h2>Our Process</h2>
+        <p>Six steps. Zero effort on your end.</p>
+    </div>
+    <div class="process-grid">
+        <div class="process-card">
+            <div class="step-num">01</div>
+            <h4>Research & Positioning</h4>
+            <p class="step-desc">We learn your business, market, and ideal customer so every campaign attracts serious buyers — not time-wasters.</p>
+        </div>
+        <div class="process-card">
+            <div class="step-num">02</div>
+            <h4>Offer & Funnel Strategy</h4>
+            <p class="step-desc">We build the customer journey that moves a cold stranger from attention to booked call.</p>
+        </div>
+        <div class="process-card">
+            <div class="step-num">03</div>
+            <h4>Website & Funnel Development</h4>
+            <p class="step-desc">We build the pages and systems that turn traffic into leads and leads into appointments.</p>
+        </div>
+        <div class="process-card">
+            <div class="step-num">04</div>
+            <h4>Lead Generation Setup</h4>
+            <p class="step-desc">We set up the full infrastructure to consistently attract and capture qualified leads at scale.</p>
+        </div>
+        <div class="process-card">
+            <div class="step-num">05</div>
+            <h4>Outreach & Appointment Setting</h4>
+            <p class="step-desc">We contact, qualify, and book leads directly into your calendar. You just show up.</p>
+        </div>
+        <div class="process-card">
+            <div class="step-num">06</div>
+            <h4>Optimisation & Scaling</h4>
+            <p class="step-desc">Once results are coming in, we scale what works and cut what doesn't — continuously.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="cal-section">
+    <div class="container-text">
+        <h2>Book Your Free Demo Call</h2>
+        <div class="cal-embed-wrap">
+            <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+            <script type="text/javascript">
+              (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }})(window, "https://app.cal.com/embed/embed.js", "init");
+              Cal("init", {origin:"https://cal.com"});
+              Cal("inline", {
+                elementOrSelector:"#my-cal-inline",
+                calLink: "shadan-z3oj8k/demo",
+                layout: "month_view"
+              });
+              Cal("ui", {"styles":{"branding":{"brandColor":"#0D0F1A"}},"hideEventTypeDetails":false,"layout":"month_view"});
+            </script>
+        </div>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="container-text">
+        <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+        <div class="faq-item"><div class="faq-question">How quickly will I get my first appointment? <span>+</span></div><div class="faq-answer"><p>Most clients start seeing initial traction within the first few weeks after setup, depending on the offer, market demand, ad spend, and speed of communication. Faster follow-up and a strong offer usually lead to quicker results.</p></div></div>
+        <div class="faq-item"><div class="faq-question">How do you guarantee 50 appointments? <span>+</span></div><div class="faq-answer"><p>We focus on building a complete acquisition system designed to consistently generate qualified opportunities. This includes strategy, funnel optimization, outreach systems, lead generation, and continuous improvement throughout the campaign. Results depend on factors like offer quality, response speed, market fit, and sales process execution.</p></div></div>
+        <div class="faq-item"><div class="faq-question">Who is this best suited for? <span>+</span></div><div class="faq-answer"><p>This is best suited for real estate agents that already have a valuable service or offer and want a predictable system for generating leads and booking appointments. It works especially well for those are willing to grow.</p></div></div>
+        <div class="faq-item"><div class="faq-question">Will I need to hire a sales team? <span>+</span></div><div class="faq-answer"><p>No. Many agents start by handling appointments themselves. As volume increases, you can later expand your sales process if needed. It totally depends on you.</p></div></div>
+        <div class="faq-item"><div class="faq-question">What makes your approach different? <span>+</span></div><div class="faq-answer"><p>We focus on appointment booking systems instead of just marketing and lead gen. Every step is built around generating qualified conversations and booking appointments.</p></div></div>
+        <div class="faq-item"><div class="faq-question">What exactly is appointment setting is? <span>+</span></div><div class="faq-answer"><p>Appointment setting is when a dedicated team handles your entire outbound sales process. We find your ideal clients, reach out, have the conversations, qualify them, and book them into your calendar as confirmed calls. By the time someone lands in your calendar they already know who you are and they're genuinely interested. You just show up and close.</p></div></div>
+        <div class="faq-item"><div class="faq-question">How quickly will i get my first appointment? <span>+</span></div><div class="faq-answer"><p>Most clients see their first booked call within 14–18 days of onboarding. The first week is setup — ICP research, funnel strategy, and campaign configuration. We go live on day 8. Results build momentum over 30–60 days as we optimise targeting and messaging.</p></div></div>
+        <div class="faq-item"><div class="faq-question">What's the difference between you and a VA doing outreach? <span>+</span></div><div class="faq-answer"><p>A VA sends messages. We run a system. That means targeted list building, tested copy, multi-channel sequences, live qualification conversations, objection handling, and booking management — all optimised continuously based on data. A VA following a script gets ignored. A trained setter running a proven system books calls.</p></div></div>
+        <div class="faq-item"><div class="faq-question">How do i get started? <span>+</span></div><div class="faq-answer"><p>Book a free 15-minute demo call using the calendar above. We'll start by understanding your business, your current pipeline, and where you want to be. We don't pitch on this call — we diagnose first. If we think we can help, we'll schedule a longer call to walk you through the full plan, expected results, and investment. If we don't think we're the right fit, we'll tell you honestly.</p></div></div>
+    </div>
+</section>
+
+<footer style="padding: 48px; text-align: center; border-top: 1px solid var(--border-light); color: var(--text-muted); font-size: 0.85rem;">
+    © 2026 Edge Appointment. All rights reserved.
+</footer>
+
+<script>
+    // Generate animated particles
+    function createParticles() {
+        const container = document.getElementById('particles-container');
+        const particleCount = 20;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 15) + 's';
+            container.appendChild(particle);
+        }
+    }
+
+    createParticles();
+
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const answer = q.nextElementSibling;
+            const isOpen = answer.style.maxHeight;
+            document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = null);
+            if (!isOpen) answer.style.maxHeight = answer.scrollHeight + 'px';
+        });
+    });
+
+    function startTimer() {
+        let endTime = sessionStorage.getItem('ea_timer') || (Date.now() + 82800000);
+        sessionStorage.setItem('ea_timer', endTime);
+        setInterval(() => {
+            let rem = Math.max(0, endTime - Date.now());
+            let h = Math.floor(rem / 3600000), m = Math.floor((rem % 3600000) / 60000), s = Math.floor((rem % 60000) / 1000);
+            document.getElementById('timer').textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        }, 1000);
+    }
+    startTimer();
+</script>
+</body>
+</html>
