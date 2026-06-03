@@ -28,255 +28,88 @@
             overflow-x: hidden;
         }
 
-        /* BACKGROUND ANIMATION */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+        .animate-on-scroll.revealed { opacity: 1; transform: translateY(0); }
+
+        .hover-pop {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, box-shadow;
+        }
+        .hover-pop:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px rgba(13, 15, 26, 0.06); border-color: rgba(13, 15, 26, 0.15); }
+        .comparison-card.edge.hover-pop:hover { box-shadow: 0 20px 40px rgba(9, 11, 20, 0.3); border-color: rgba(255, 255, 255, 0.2); }
+        .faq-item.hover-pop { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .faq-item.hover-pop:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02); }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
         .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: linear-gradient(135deg, #ffffff 0%, #f9fafb 50%, #ffffff 100%);
-            z-index: -1;
-            overflow: hidden;
+            z-index: -1; overflow: hidden;
         }
+        .floating-shape { position: absolute; opacity: 0.15; filter: blur(40px); }
+        .shape-1 { width: 400px; height: 400px; background: radial-gradient(circle, #0D0F1A 0%, transparent 70%); top: -100px; right: -100px; border-radius: 50%; animation: float 20s infinite ease-in-out; }
+        .shape-2 { width: 500px; height: 500px; background: radial-gradient(circle, #090B14 0%, transparent 70%); bottom: -150px; left: -150px; border-radius: 50%; animation: float 25s infinite ease-in-out reverse; }
+        .shape-3 { width: 300px; height: 300px; background: radial-gradient(circle, #0D0F1A 0%, transparent 70%); top: 50%; left: 10%; border-radius: 50%; animation: float 30s infinite ease-in-out; }
 
-        .floating-shape {
-            position: absolute;
-            opacity: 0.15;
-            filter: blur(40px);
-        }
-
-        .shape-1 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #0D0F1A 0%, transparent 70%);
-            top: -100px;
-            right: -100px;
-            border-radius: 50%;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .shape-2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, #090B14 0%, transparent 70%);
-            bottom: -150px;
-            left: -150px;
-            border-radius: 50%;
-            animation: float 25s infinite ease-in-out reverse;
-        }
-
-        .shape-3 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, #0D0F1A 0%, transparent 70%);
-            top: 50%;
-            left: 10%;
-            border-radius: 50%;
-            animation: float 30s infinite ease-in-out;
-        }
-
-        /* ANIMATED GRID BACKGROUND */
         .grid-animation {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(13, 15, 26, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(13, 15, 26, 0.08) 1px, transparent 1px);
+            position: absolute; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(13, 15, 26, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(13, 15, 26, 0.08) 1px, transparent 1px);
             background-size: 50px 50px;
-            background-position: 0 0;
             animation: gridShift 20s linear infinite;
         }
+        @keyframes gridShift { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
 
-        @keyframes gridShift {
-            0% { background-position: 0 0; }
-            100% { background-position: 50px 50px; }
-        }
+        .particle { position: absolute; width: 2px; height: 2px; background: rgba(13, 15, 26, 0.25); border-radius: 50%; animation: particleFloat 15s infinite; }
+        @keyframes particleFloat { 0% { opacity: 0; transform: translateY(0) translateX(0); } 50% { opacity: 1; } 100% { opacity: 0; transform: translateY(-100vh) translateX(100px); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px) translateX(0px); } 25% { transform: translateY(-30px) translateX(30px); } 50% { transform: translateY(-60px) translateX(-30px); } 75% { transform: translateY(-30px) translateX(30px); } }
 
-        /* ANIMATED PARTICLES */
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(13, 15, 26, 0.25);
-            border-radius: 50%;
-            animation: particleFloat 15s infinite;
-        }
+        .line { position: absolute; background: linear-gradient(90deg, transparent, rgba(13, 15, 26, 0.15), transparent); }
+        .line-1 { width: 200%; height: 1px; top: 20%; left: -50%; animation: lineSlide 4s infinite ease-in-out; }
+        .line-2 { width: 200%; height: 1px; top: 50%; left: -50%; animation: lineSlide 5s infinite ease-in-out reverse; }
+        .line-3 { width: 200%; height: 1px; top: 80%; left: -50%; animation: lineSlide 6s infinite ease-in-out; }
+        @keyframes lineSlide { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
-        @keyframes particleFloat {
-            0% {
-                opacity: 0;
-                transform: translateY(0) translateX(0);
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100vh) translateX(100px);
-            }
-        }
+        .pulse-circle { position: absolute; border: 1px solid rgba(13, 15, 26, 0.15); border-radius: 50%; }
+        .pulse-1 { width: 100px; height: 100px; top: 30%; right: 20%; animation: pulse 4s infinite; }
+        .pulse-2 { width: 150px; height: 150px; bottom: 20%; left: 15%; animation: pulse 5s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.2); opacity: 0.25; } }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            25% { transform: translateY(-30px) translateX(30px); }
-            50% { transform: translateY(-60px) translateX(-30px); }
-            75% { transform: translateY(-30px) translateX(30px); }
-        }
-
-        /* ANIMATED LINES */
-        .line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(13, 15, 26, 0.15), transparent);
-            animation: lineSlide 3s infinite;
-        }
-
-        .line-1 {
-            width: 200%;
-            height: 1px;
-            top: 20%;
-            left: -50%;
-            animation: lineSlide 4s infinite ease-in-out;
-        }
-
-        .line-2 {
-            width: 200%;
-            height: 1px;
-            top: 50%;
-            left: -50%;
-            animation: lineSlide 5s infinite ease-in-out reverse;
-        }
-
-        .line-3 {
-            width: 200%;
-            height: 1px;
-            top: 80%;
-            left: -50%;
-            animation: lineSlide 6s infinite ease-in-out;
-        }
-
-        @keyframes lineSlide {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* PULSE CIRCLES */
-        .pulse-circle {
-            position: absolute;
-            border: 1px solid rgba(13, 15, 26, 0.15);
-            border-radius: 50%;
-            animation: pulse 4s infinite;
-        }
-
-        .pulse-1 {
-            width: 100px;
-            height: 100px;
-            top: 30%;
-            right: 20%;
-            animation: pulse 4s infinite;
-        }
-
-        .pulse-2 {
-            width: 150px;
-            height: 150px;
-            bottom: 20%;
-            left: 15%;
-            animation: pulse 5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.6;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.25;
-            }
-        }
-
-        /* URGENCY BAR */
-        .urgency-bar {
-            background: rgba(9, 11, 20, 0.4);
-            color: white;
-            text-align: center;
-            padding: 12px 24px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 1100;
-            backdrop-filter: blur(30px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .timer-box {
-            background: rgba(255,255,255,0.15);
-            padding: 4px 12px;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 4px;
-            font-family: monospace;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* NAV */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            border-bottom: 1px solid rgba(13, 15, 26, 0.1);
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(30px);
-            position: sticky;
-            top: 49px;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 40px; border-bottom: 1px solid rgba(13, 15, 26, 0.1);
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(30px);
+            position: sticky; top: 0; z-index: 1000;
         }
-        .logo-text {
-            font-family: 'Times New Roman', Times, serif;
-            font-style: italic;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #000000;
-            text-decoration: none;
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #000000;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-        .nav-cta {
-            background: var(--accent-dark);
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-        }
+        .logo-text { font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 1.4rem; font-weight: 700; color: #000000; text-decoration: none; }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .nav-links a { text-decoration: none; color: #000000; font-weight: 500; font-size: 0.95rem; }
+        .nav-cta { background: var(--accent-dark); color: white !important; padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; cursor: pointer; text-align: center; }
 
-        /* HERO */
+        #menu-toggle { display: none; }
+        .menu-icon { display: none; cursor: pointer; position: relative; z-index: 1010; width: 24px; height: 18px; flex-direction: column; justify-content: space-between; }
+        .menu-icon span { display: block; height: 2.5px; width: 100%; background-color: #000000; border-radius: 2px; transition: all 0.3s ease; }
+
         section { padding: 100px 24px; }
         .container-text { max-width: var(--max-text); margin: 0 auto; text-align: center; }
         .container-grid { max-width: var(--max-grid); margin: 0 auto; }
         h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; color: #000000; }
 
         .hero { padding: 120px 24px 80px; text-align: center; }
-        .hero h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); margin-bottom: 12px; animation: fadeInUp 0.8s ease-out; }
+        .hero h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); margin-bottom: 12px; }
         .hero h1 span { color: var(--text-muted); display: block; font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-top: 10px; }
-        .hero p { margin: 24px auto 36px; font-size: 1.15rem; color: var(--text-muted); max-width: 560px; animation: fadeInUp 0.8s ease-out 0.2s both; }
-        
-        .btn-black {
+        .hero p { margin: 24px auto 36px; font-size: 1.15rem; color: var(--text-muted); max-width: 560px; }
+
+        .btn-premium-trigger {
             background: var(--btn-black);
             color: white;
             padding: 16px 36px;
@@ -284,177 +117,203 @@
             font-weight: 700;
             text-decoration: none;
             display: inline-block;
-            transition: transform 0.2s;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+            box-shadow: 0 4px 12px rgba(13, 15, 26, 0.1);
+            transform: translateZ(0);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+            user-select: none;
         }
-        .btn-black:hover { transform: translateY(-2px); }
-
-        .hero-target {
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            background: #F9FAFB;
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: 1px solid var(--border-light);
-            animation: fadeInUp 0.8s ease-out 0.6s both;
+        .btn-premium-trigger:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(13, 15, 26, 0.18);
+            background-color: var(--accent-dark);
+        }
+        .btn-premium-trigger::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transform: skewX(-25deg);
+        }
+        .btn-premium-trigger:hover::after {
+            animation: shineSweep 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes shineSweep {
+            0% { left: -150%; }
+            100% { left: 150%; }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        .hero-target { display: inline-block; margin-top: 20px; font-size: 0.9rem; color: var(--text-muted); background: #F9FAFB; padding: 10px 20px; border-radius: 50px; border: 1px solid var(--border-light); }
 
-        /* COMPARISON SECTION */
-        .comparison-section { background: white; padding: 100px 24px; }
+        .about-section { padding: 80px 24px; border-top: 1px solid var(--border-light); background: #F9FAFB; }
+        .about-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+        .about-badge { display: inline-block; background: var(--accent-dark); color: white; font-size: 0.8rem; font-weight: 600; padding: 6px 16px; border-radius: 50px; margin-bottom: 24px; letter-spacing: 0.05em; }
+        .about-inner h2 { font-size: 2rem; margin-bottom: 20px; }
+        .about-inner p { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+        .about-stats { display: flex; justify-content: center; gap: 48px; margin-top: 40px; flex-wrap: wrap; }
+        .about-stat { text-align: center; }
+        .about-stat-number { font-size: 2rem; font-weight: 800; color: #000; display: block; }
+        .about-stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+        .comparison-section { padding: 100px 24px; }
         .comparison-intro { max-width: var(--max-text); margin: 0 auto 32px; text-align: center; }
         .comparison-intro p { font-size: 1.1rem; color: #000000; font-weight: 600; margin-bottom: 40px; }
 
-        .table-wrapper { overflow-x: auto; margin-bottom: 60px; border-radius: 12px; border: 1px solid var(--border-light); background: white; }
+        .table-wrapper { overflow-x: auto; margin-bottom: 60px; border-radius: 12px; border: 1px solid var(--border-light); background: white; max-width: 760px; margin-left: auto; margin-right: auto; }
         table { width: 100%; border-collapse: collapse; min-width: 640px; }
         th, td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border-light); font-size: 0.95rem; color: #000000; }
         th { background: #F3F4F6; font-weight: 700; }
         .edge-col-head { background: var(--accent-dark) !important; color: white !important; }
         .edge-col-data { font-weight: 700; }
 
-        .comparison-grid {
-            max-width: var(--max-grid);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            align-items: start;
-        }
-
-        .comparison-card {
-            background: #F9FAFB;
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 28px 24px;
-            text-align: left;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .comparison-card.edge {
-            background: var(--accent-dark);
-            color: white;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
+        .comparison-grid { max-width: var(--max-grid); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+        .comparison-card { background: #F9FAFB; border: 1px solid var(--border-light); border-radius: 12px; padding: 28px 24px; text-align: left; }
+        .comparison-card.edge { background: var(--accent-dark); color: white; }
         .comparison-card h3 { font-size: 1.1rem; margin-bottom: 16px; color: #000000; }
         .comparison-card.edge h3 { color: white; }
         .comparison-card p { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
         .comparison-card.edge p { color: rgba(255,255,255,0.8); }
 
-        /* PROCESS */
-        .process-section { background: white; padding: 100px 24px; border-top: 1px solid var(--border-light); }
+        .process-section { padding: 100px 24px; border-top: 1px solid var(--border-light); }
         .process-section .container-text { margin-bottom: 60px; }
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: var(--max-grid);
-            margin: 0 auto;
-        }
-        .process-card {
-            background: #F9FAFB;
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 32px 28px;
-            text-align: left;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .process-card:nth-child(1) { animation-delay: 0s; }
-        .process-card:nth-child(2) { animation-delay: 0.1s; }
-        .process-card:nth-child(3) { animation-delay: 0.2s; }
-        .process-card:nth-child(4) { animation-delay: 0.3s; }
-        .process-card:nth-child(5) { animation-delay: 0.4s; }
-        .process-card:nth-child(6) { animation-delay: 0.5s; }
-
-        .step-num {
-            width: 44px; height: 44px;
-            background: var(--accent-dark);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
+        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: var(--max-grid); margin: 0 auto; }
+        .process-card { background: #F9FAFB; border: 1px solid var(--border-light); border-radius: 12px; padding: 32px 28px; text-align: left; }
+        .step-num { width: 44px; height: 44px; background: var(--accent-dark); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 20px; }
         .process-card h4 { font-weight: 800; margin-bottom: 8px; font-size: 1rem; color: #000000; }
         .step-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
 
-        /* CALENDAR SECTION */
-        .cal-section { 
+        /* Modified Booking section properties to allow native scroll fade-in */
+        .contact-placeholder-section { 
             border-top: 1px solid var(--border-light); 
-            background: linear-gradient(135deg, #ffffff 0%, rgba(249, 250, 251, 0.5) 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%); 
+            text-align: center; 
+            padding: 100px 24px; 
+            scroll-margin-top: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        
+        /* Retained custom handling state if accessed via buttons */
+        .contact-placeholder-section.revealed-booking,
+        .contact-placeholder-section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-placeholder-section h2 { font-size: 2.5rem; margin-bottom: 16px; }
+        .contact-placeholder-section p { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; }
+        
+        .inline-embed-outer-container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 12px 40px rgba(13, 15, 26, 0.04);
+            overflow: hidden;
             position: relative;
         }
-        .cal-section h2 {
-            animation: slideInDown 0.8s ease-out;
+        .inline-embed-iframe-scrollbox {
+            width: 100%;
+            height: 680px;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
         }
-        .cal-embed-wrap {
-            margin-top: 40px;
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            overflow: hidden;
-            height: 700px;
-            background: #fdfdfd;
-            animation: slideInUp 0.8s ease-out;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        #my-cal-inline-demo {
+            width: 100%;
+            height: 100%;
+            min-height: 650px;
         }
 
-        .cal-embed-wrap:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* FAQ */
         #faq { background: #F9FAFB; border-top: 1px solid var(--border-light); }
         .faq-list { margin-top: 40px; max-width: 780px; margin-left: auto; margin-right: auto; text-align: left; }
-        .faq-item { background: white; border-radius: 8px; margin-bottom: 10px; border: 1px solid var(--border-light); }
-        .faq-question { padding: 22px 24px; display: flex; justify-content: space-between; cursor: pointer; font-weight: 700; font-size: 0.95rem; color: #000000; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-        .faq-answer p { padding: 0 24px 22px; font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; }
+        .faq-item { background: white; border-radius: 8px; margin-bottom: 10px; border: 1px solid var(--border-light); overflow: hidden; }
+        .faq-question { padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 0.95rem; color: #000000; user-select: none; }
+        .faq-question span { font-size: 1.2rem; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-block; }
+        .faq-item.active .faq-question span { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.18); will-change: max-height; }
+        .faq-answer p { padding: 0 24px 22px; font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; opacity: 0; transform: translateY(-15px) scale(0.98); transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2); will-change: transform, opacity; }
+        .faq-item.active .faq-answer p { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.05s; }
+
+        .whatsapp-float {
+            position: fixed; bottom: 28px; right: 28px; z-index: 999;
+            background: #25D366; color: white; width: 56px; height: 56px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            text-decoration: none; font-size: 1.6rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5); }
+
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13, 15, 26, 0.5); backdrop-filter: blur(8px);
+            z-index: 2000; display: flex; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: auto; }
+        .modal-content {
+            background: #FFFFFF; width: 90%; max-width: 700px; max-height: 80vh;
+            border-radius: 12px; padding: 36px; box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
+            overflow-y: auto; text-align: left; position: relative;
+            transform: translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-overlay.open .modal-content { transform: translateY(0); }
+        .modal-close {
+            position: absolute; top: 24px; right: 24px; background: #F3F4F6;
+            border: none; width: 32px; height: 32px; border-radius: 50%; font-weight: 700;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; transition: background 0.2s ease;
+        }
+        .modal-close:hover { background: #E5E7EB; }
+        .modal-text h3 { font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid var(--border-light); padding-bottom: 10px; }
+        .modal-text h4 { font-size: 1rem; font-weight: 700; margin: 20px 0 8px; color: var(--text-main); }
+        .modal-text p, .modal-text ul { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+        .modal-text ul { padding-left: 20px; }
+
+        .site-footer { background: var(--accent-dark); color: rgba(255,255,255,0.8); padding: 48px 40px 32px; }
+        .footer-grid { max-width: var(--max-grid); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
+        .footer-col p, .footer-col a { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; text-decoration: none; display: block; }
+        .footer-col a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; max-width: var(--max-grid); margin: 0 auto; }
+        .footer-bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+        .footer-links { display: flex; gap: 20px; }
+        .footer-links span { font-size: 0.82rem; color: rgba(255,255,255,0.4); cursor: pointer; text-decoration: underline; }
+        .footer-links span:hover { color: white; }
+
+        .footer-disclaimer { background: #F3F4F6; border-top: 1px solid var(--border-light); padding: 32px 24px; text-align: center; }
+        .footer-disclaimer-text { max-width: 900px; margin: 0 auto; font-size: 0.82rem; color: #6B7280; line-height: 1.6; }
 
         @media (max-width: 768px) {
-            .nav-links { flex-direction: column; gap: 12px; }
-            .process-grid { grid-template-columns: 1fr; }
-            .comparison-grid { grid-template-columns: 1fr; }
-            .cal-embed-wrap { height: 900px; }
-            nav { flex-direction: column; gap: 16px; }
+            nav { padding: 15px 24px; }
+            .menu-icon { display: flex; }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); flex-direction: column; justify-content: center; align-items: center; gap: 24px; padding: 40px; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1005; }
+            .nav-links a, .nav-links span { font-size: 1.2rem; width: 80%; max-width: 280px; text-align: center; }
+            #menu-toggle:checked ~ .nav-links { right: 0; }
+            #menu-toggle:checked ~ .menu-icon span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+            #menu-toggle:checked ~ .menu-icon span:nth-child(2) { opacity: 0; }
+            #menu-toggle:checked ~ .menu-icon span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            .process-grid, .comparison-grid { grid-template-columns: 1fr; gap: 20px; }
+            section { padding: 60px 20px; }
+            .hero { padding: 80px 20px 40px; }
+            .contact-placeholder-section { padding: 60px 16px; }
+            .contact-placeholder-section h2 { font-size: 2rem; }
+            .inline-embed-iframe-scrollbox { height: 720px; }
+            .modal-content { padding: 24px; width: 95%; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
+            .about-stats { gap: 28px; }
         }
     </style>
 </head>
@@ -473,37 +332,64 @@
     <div id="particles-container"></div>
 </div>
 
-<div class="urgency-bar">
-    FREE CONSULTATION ACCESS CLOSES IN
-    <div class="timer-box" id="timer">23:00:00</div>
-</div>
-
 <nav>
     <a href="#" class="logo-text">Edge Appointment</a>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+        <span></span><span></span><span></span>
+    </label>
     <div class="nav-links">
-        <a href="#results">Why Us</a>
-        <a href="#process">Process</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="nav-cta">Book a Call</a>
-        <a href="tel:+918279323043" class="nav-cta">Contact</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#results" onclick="closeMenu()">Why Us</a>
+        <a href="#process" onclick="closeMenu()">Process</a>
+        <a href="#faq" onclick="closeMenu()">FAQ</a>
+        <span class="nav-cta btn-premium-trigger" onclick="closeMenu(); scrollToBooking();">Book a Call</span>
     </div>
 </nav>
 
 <section class="hero">
-    <div class="container-text">
-        <h1>Fill Your Calendar<span>With 50 Qualified Appointments Guaranteed</span></h1>
-        <p>We help real estate agents get 50 pre-qualified buyer appointments in 60 days. No fluff, no guesses — purely performance-based execution.</p>
-        <a href="#contact" class="btn-black">Book a Call →</a><br>
-        <div class="hero-target">Tired of chasing Unqualified leads and price sensitive buyers? Don't worry book a call for a solution</div>
+    <div class="container-text animate-on-scroll">
+        <h1>Fill Your Calendar<span>50 Qualified Appointments Guaranteed</span></h1>
+        <p>We help real estate agents get 50 pre-qualified buyer appointments in 60 days.</p>
+        <span class="btn-premium-trigger" onclick="scrollToBooking();">Book a Call →</span><br>
+        <div class="hero-target">Tired of chasing unqualified leads and price sensitive buyers? Book a call for a solution.</div>
+    </div>
+</section>
+
+<section id="about" class="about-section">
+    <div class="about-inner animate-on-scroll">
+        <div class="about-badge">WHO WE ARE</div>
+        <h2>Built After Speaking With 45+ Real Estate Agents</h2>
+        <p>I'm Shadan Abbas Jafri, founder of Edge Appointment. Before building anything, I've spent weeks speaking directly with more than 45 real estate agents in India in Tier 1 cities — asking them about their biggest frustrations, what was killing their pipeline, and what they actually needed.</p>
+        <p>The answer was the same every time: unqualified leads and price sensitive buyers wasting their time. Agents weren't struggling with closings — they were struggling to get serious buyers in front of them in the first place.</p>
+        <p>That's exactly the gap Edge Appointment was built to fill. We don't do marketing. We don't sell you leads. We book qualified buyer appointments directly into your calendar — and you only pay for what we deliver.</p>
+        <div class="about-stats">
+            <div class="about-stat">
+                <span class="about-stat-number">45+</span>
+                <div class="about-stat-label">Agents Interviewed</div>
+            </div>
+            <div class="about-stat">
+                <span class="about-stat-number">50</span>
+                <div class="about-stat-label">Appointments Guaranteed</div>
+            </div>
+            <div class="about-stat">
+                <span class="about-stat-number">60</span>
+                <div class="about-stat-label">Days to Deliver</div>
+            </div>
+            <div class="about-stat">
+                <span class="about-stat-number">&#8377;0</span>
+                <div class="about-stat-label">Risk to You</div>
+            </div>
+        </div>
     </div>
 </section>
 
 <section id="results" class="comparison-section">
-    <div class="comparison-intro">
+    <div class="comparison-intro animate-on-scroll">
         <h2>You're Not Paying For Clicks.<br>You're Paying For Conversations.</h2>
         <p>Most agencies charge for marketing and walk away. We charge for results — qualified people sitting in your calendar, ready to buy.</p>
     </div>
-    <div class="table-wrapper">
+    <div class="table-wrapper animate-on-scroll hover-pop">
         <table>
             <thead>
                 <tr>
@@ -514,21 +400,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>What you pay for</td><td>Ad spend + monthly fee</td><td>Cost per lead</td><td class="edge-col-data">Booked appointments</td></tr>
-                <tr><td>What you get</td><td>Traffic & impressions</td><td>A list of contacts</td><td class="edge-col-data">Qualified calls in your calendar</td></tr>
+                <tr><td>What you pay for</td><td>Ad spend + monthly fee</td><td>Cost per lead</td><td class="edge-col-data">Booked appointments only</td></tr>
+                <tr><td>What you get</td><td>Traffic &amp; impressions</td><td>A list of contacts</td><td class="edge-col-data">Qualified calls in your calendar</td></tr>
                 <tr><td>Lead quality</td><td>Unknown</td><td>Unverified</td><td class="edge-col-data">Pre-qualified against your criteria</td></tr>
                 <tr><td>Conversation handling</td><td>No</td><td>No</td><td class="edge-col-data">Yes — we handle everything</td></tr>
                 <tr><td>Guarantee</td><td>None</td><td>None</td><td class="edge-col-data">50 Appointments Guaranteed</td></tr>
-                <tr><td>Your job</td><td>Figure out the rest</td><td>Chase & qualify yourself</td><td class="edge-col-data">Show up and close</td></tr>
+                <tr><td>Your job</td><td>Figure out the rest</td><td>Chase &amp; qualify yourself</td><td class="edge-col-data">Show up and close</td></tr>
             </tbody>
         </table>
     </div>
     <div class="comparison-grid">
-        <div class="comparison-card">
+        <div class="comparison-card animate-on-scroll hover-pop">
             <h3>The Old Way</h3>
-            <p>Chasing unverified leads, spending hours on the phone with tire-kickers, and paying monthly retainers for "visibility" instead of actual revenue.</p>
+            <p>Chasing unverified leads, spending hours on the phone with tire-kickers, and paying monthly retainers for visibility instead of actual revenue.</p>
         </div>
-        <div class="comparison-card edge">
+        <div class="comparison-card edge animate-on-scroll hover-pop delay-1">
             <h3>The Edge Way</h3>
             <p>Every lead is pre-vetted against your criteria. We handle objections and confirmations. You only focus on the qualified prospects sitting in your calendar.</p>
         </div>
@@ -536,122 +422,321 @@
 </section>
 
 <section id="process" class="process-section">
-    <div class="container-text">
-        <h2>Our Process</h2>
-        <p>Six steps. Zero effort on your end.</p>
+    <div class="container-text animate-on-scroll">
+        <h2>Our 4 Step Pre-Qualified Appointment Process</h2>
+        <p>Everything handled for you. Zero effort on your end.</p>
     </div>
     <div class="process-grid">
-        <div class="process-card">
+        <div class="process-card animate-on-scroll hover-pop">
             <div class="step-num">01</div>
-            <h4>Research & Positioning</h4>
-            <p class="step-desc">We learn your business, market, and ideal customer so every campaign attracts serious buyers — not time-wasters.</p>
+            <h4>Target &amp; Research</h4>
+            <p class="step-desc">We define your ideal buyer profile — budget, location, property type, purchase intent — so every ad targets the right person from day one.</p>
         </div>
-        <div class="process-card">
+        <div class="process-card animate-on-scroll hover-pop delay-1">
             <div class="step-num">02</div>
-            <h4>Offer & Funnel Strategy</h4>
-            <p class="step-desc">We build the customer journey that moves a cold stranger from attention to booked call.</p>
+            <h4>Run Targeted Ads</h4>
+            <p class="step-desc">We create and run Facebook and Instagram ads designed to attract serious buyers — not curious browsers or price shoppers.</p>
         </div>
-        <div class="process-card">
+        <div class="process-card animate-on-scroll hover-pop delay-2">
             <div class="step-num">03</div>
-            <h4>Website & Funnel Development</h4>
-            <p class="step-desc">We build the pages and systems that turn traffic into leads and leads into appointments.</p>
+            <h4>Filter &amp; Qualify</h4>
+            <p class="step-desc">Every lead is screened through qualifying questions. Anyone without real budget or genuine purchase intent is filtered out before reaching you.</p>
         </div>
-        <div class="process-card">
+        <div class="process-card animate-on-scroll hover-pop">
             <div class="step-num">04</div>
-            <h4>Lead Generation Setup</h4>
-            <p class="step-desc">We set up the full infrastructure to consistently attract and capture qualified leads at scale.</p>
-        </div>
-        <div class="process-card">
-            <div class="step-num">05</div>
-            <h4>Outreach & Appointment Setting</h4>
-            <p class="step-desc">We contact, qualify, and book leads directly into your calendar. You just show up.</p>
-        </div>
-        <div class="process-card">
-            <div class="step-num">06</div>
-            <h4>Optimisation & Scaling</h4>
-            <p class="step-desc">Once results are coming in, we scale what works and cut what doesn't — continuously.</p>
+            <h4>Book &amp; Confirm</h4>
+            <p class="step-desc">Qualified buyers are booked directly into your calendar. We send reminders and confirmations so they actually show up — ready to talk.</p>
         </div>
     </div>
 </section>
 
-<section id="contact" class="cal-section">
+<section id="contact" class="contact-placeholder-section animate-on-scroll">
     <div class="container-text">
-        <h2>Book Your Free Demo Call</h2>
-        <div class="cal-embed-wrap">
-            <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+        <h2>Ready to Fill Your Calendar?</h2>
+        <p>Select a slot directly inside our calendar framework down below to lock in your free 15-minute discovery call session instantly.</p>
+    </div>
+    <div class="inline-embed-outer-container">
+        <div class="inline-embed-iframe-scrollbox">
+            <div id="my-cal-inline-demo"></div>
             <script type="text/javascript">
-              (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }})(window, "https://app.cal.com/embed/embed.js", "init");
-              Cal("init", {origin:"https://cal.com"});
-              Cal("inline", {
-                elementOrSelector:"#my-cal-inline",
+              (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+              Cal("init", "demo", {origin:"https://app.cal.com"});
+
+              Cal.ns.demo("inline", {
+                elementOrSelector:"#my-cal-inline-demo",
+                config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"auto"},
                 calLink: "shadan-z3oj8k/demo",
-                layout: "month_view"
               });
-              Cal("ui", {"styles":{"branding":{"brandColor":"#0D0F1A"}},"hideEventTypeDetails":false,"layout":"month_view"});
+
+              Cal.ns.demo("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
             </script>
         </div>
     </div>
 </section>
 
 <section id="faq">
-    <div class="container-text">
+    <div class="container-text animate-on-scroll">
         <h2>Frequently Asked Questions</h2>
     </div>
     <div class="faq-list">
-        <div class="faq-item"><div class="faq-question">How quickly will I get my first appointment? <span>+</span></div><div class="faq-answer"><p>Most clients start seeing initial traction within the first few weeks after setup, depending on the offer, market demand, ad spend, and speed of communication. Faster follow-up and a strong offer usually lead to quicker results.</p></div></div>
-        <div class="faq-item"><div class="faq-question">How do you guarantee 50 appointments? <span>+</span></div><div class="faq-answer"><p>We focus on building a complete acquisition system designed to consistently generate qualified opportunities. This includes strategy, funnel optimization, outreach systems, lead generation, and continuous improvement throughout the campaign. Results depend on factors like offer quality, response speed, market fit, and sales process execution.</p></div></div>
-        <div class="faq-item"><div class="faq-question">Who is this best suited for? <span>+</span></div><div class="faq-answer"><p>This is best suited for real estate agents that already have a valuable service or offer and want a predictable system for generating leads and booking appointments. It works especially well for those are willing to grow.</p></div></div>
-        <div class="faq-item"><div class="faq-question">Will I need to hire a sales team? <span>+</span></div><div class="faq-answer"><p>No. Many agents start by handling appointments themselves. As volume increases, you can later expand your sales process if needed. It totally depends on you.</p></div></div>
-        <div class="faq-item"><div class="faq-question">What makes your approach different? <span>+</span></div><div class="faq-answer"><p>We focus on appointment booking systems instead of just marketing and lead gen. Every step is built around generating qualified conversations and booking appointments.</p></div></div>
-        <div class="faq-item"><div class="faq-question">What exactly is appointment setting is? <span>+</span></div><div class="faq-answer"><p>Appointment setting is when a dedicated team handles your entire outbound sales process. We find your ideal clients, reach out, have the conversations, qualify them, and book them into your calendar as confirmed calls. By the time someone lands in your calendar they already know who you are and they're genuinely interested. You just show up and close.</p></div></div>
-        <div class="faq-item"><div class="faq-question">How quickly will i get my first appointment? <span>+</span></div><div class="faq-answer"><p>Most clients see their first booked call within 14–18 days of onboarding. The first week is setup — ICP research, funnel strategy, and campaign configuration. We go live on day 8. Results build momentum over 30–60 days as we optimise targeting and messaging.</p></div></div>
-        <div class="faq-item"><div class="faq-question">What's the difference between you and a VA doing outreach? <span>+</span></div><div class="faq-answer"><p>A VA sends messages. We run a system. That means targeted list building, tested copy, multi-channel sequences, live qualification conversations, objection handling, and booking management — all optimised continuously based on data. A VA following a script gets ignored. A trained setter running a proven system books calls.</p></div></div>
-        <div class="faq-item"><div class="faq-question">How do i get started? <span>+</span></div><div class="faq-answer"><p>Book a free 15-minute demo call using the calendar above. We'll start by understanding your business, your current pipeline, and where you want to be. We don't pitch on this call — we diagnose first. If we think we can help, we'll schedule a longer call to walk you through the full plan, expected results, and investment. If we don't think we're the right fit, we'll tell you honestly.</p></div></div>
+        <div class="faq-item animate-on-scroll hover-pop">
+            <div class="faq-question">What exactly is appointment setting? <span>+</span></div>
+            <div class="faq-answer"><p>Appointment setting means we handle the entire process of finding serious buyers, qualifying them, and booking them directly into your calendar as confirmed appointments. By the time someone appears in your schedule, they already know who you are, what property you're offering, and they're genuinely interested. You just show up and have the conversation.</p></div>
+        </div>
+        <div class="faq-item animate-on-scroll hover-pop">
+            <div class="faq-question">How is this different from a lead gen agency? <span>+</span></div>
+            <div class="faq-answer"><p>A lead gen agency gives you a list of names and numbers and leaves the rest to you. You still have to call, qualify, follow up, and deal with people who aren't serious. We handle all of that. You only receive confirmed, pre-qualified appointments — people who have been screened and are ready to speak with you about buying a property.</p></div>
+        </div>
+        <div class="faq-item animate-on-scroll hover-pop">
+            <div class="faq-question">How do you guarantee 50 appointments? <span>+</span></div>
+            <div class="faq-answer"><p>We run targeted Facebook and Instagram ads to attract buyers, qualify them through a screening process, and book only the serious ones into your calendar. Our guarantee is backed by a discrepancy refund — for every appointment we miss under the agreed target, you get a full per-appointment refund. You literally only pay for what we deliver.</p></div>
+        </div>
+        <div class="faq-item animate-on-scroll hover-pop">
+            <div class="faq-question">What is the pricing and how does the refund work? <span>+</span></div>
+            <div class="faq-answer"><p>We work on a pure pay-per-appointment basis — you only pay for appointments we actually deliver. Our pricing is discussed on the discovery call based on your specific market and requirements. The appointment fee is protected by our discrepancy guarantee — for every appointment we miss under the agreed target, we refund you that amount. Ad spend is separate and goes directly to the ad platform.</p></div>
+        </div>
+        <div class="faq-item animate-on-scroll hover-pop">
+            <div class="faq-question">Who is this best suited for? <span>+</span></div>
+            <div class="faq-answer"><p>This works best for real estate agents in Tier 1 and Tier 2 cities who are actively selling properties and want a consistent flow of serious buyers without wasting time on price-sensitive leads. It's especially effective for agents who are ready to grow but are held back by inconsistent lead quality.</p></div>
+        </div>
+        <div class="faq-item animate-on-scroll hover-pop">
+            <div class="faq-question">How quickly will I get my first appointment? <span>+</span></div>
+            <div class="faq-answer"><p>Most clients see their first booked appointments within the first two weeks after onboarding. The first few days are spent on setup — understanding your property, target buyer, and campaign configuration. We go live shortly after and appointments start building from there.</p></div>
+        </div>
+        <div class="faq-item animate-on-scroll hover-pop">
+            <div class="faq-question">Will I need to hire a sales team? <span>+</span></div>
+            <div class="faq-answer"><p>No. Most agents start by handling appointments themselves. The appointments we deliver are already pre-qualified, so the conversations are more focused and less time-consuming than typical cold leads. As volume grows, you can expand your process if needed.</p></div>
+        </div>
+        <div class="faq-item animate-on-scroll hover-pop">
+            <div class="faq-question">How do I get started? <span>+</span></div>
+            <div class="faq-answer"><p>Click any of the booking buttons on this page. We'll schedule a free 15-minute discovery call where we understand your current situation — how many appointments you're getting, what your target buyer looks like, and where the core bottlenecks exist.</p></div>
+        </div>
     </div>
 </section>
 
-<footer style="padding: 48px; text-align: center; border-top: 1px solid var(--border-light); color: var(--text-muted); font-size: 0.85rem;">
-    © 2026 Edge Appointment. All rights reserved.
+
+<div class="modal-overlay" id="privacyModal" onclick="closeModalOnOverlay(event, 'privacyModal')">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('privacyModal')">&#215;</button>
+        <div class="modal-text">
+            <h3>Privacy Policy</h3>
+            <p><strong>Edge Appointment | edgeappointment.com | Last Updated: May 2026</strong></p>
+            <h4>1. Who We Are</h4>
+            <p>Edge Appointment is operated by Shadan Abbas Jafri, based in Uttar Pradesh, India. We provide real estate appointment setting services to agents across Tier 1 and Tier 2 cities in India. Contact: shadanbuisnessemail@gmail.com</p>
+            <h4>2. Information We Collect</h4>
+            <p>We collect only your name, email address, and phone number — provided when you book a call through Cal.com. We do not collect payment details, cookies, or sensitive data.</p>
+            <h4>3. How We Use Your Information</h4>
+            <ul>
+                <li>To confirm and manage your call booking</li>
+                <li>To communicate about our services</li>
+                <li>To send reminders for your scheduled call</li>
+                <li>To follow up after your consultation</li>
+            </ul>
+            <h4>4. Legal Basis</h4>
+            <p>We process data under India's Digital Personal Data Protection Act, 2023 (DPDP Act), on the basis of your consent and contractual necessity.</p>
+            <h4>5. Data Sharing</h4>
+            <p>We do not sell or rent your data. It may only be shared with Cal.com for booking management, or with legal authorities when required by Indian law.</p>
+            <h4>6. Your Rights</h4>
+            <p>You may access, correct, delete, or withdraw consent for your data at any time by contacting shadanbuisnessemail@gmail.com.</p>
+            <h4>7. Governing Law</h4>
+            <p>Governed by the laws of India. Jurisdiction: Uttar Pradesh courts.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="termsModal" onclick="closeModalOnOverlay(event, 'termsModal')">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('termsModal')">&#215;</button>
+        <div class="modal-text">
+            <h3>Terms &amp; Conditions</h3>
+            <p><strong>Edge Appointment | edgeappointment.com | Last Updated: May 2026</strong></p>
+            <h4>1. Services</h4>
+            <p>Edge Appointment provides real estate appointment setting services. By booking a discovery call or engaging our services, you agree to these terms.</p>
+            <h4>2. Service Scope</h4>
+            <p>We run targeted ad campaigns, filter and qualify leads, and book confirmed appointments into your calendar. We do not guarantee property sales, closings, or revenue outcomes. Our guarantee covers appointment delivery only.</p>
+            <h4>3. Payment Structure</h4>
+            <p>Our engagement operates on a two-part payment model agreed upon before work begins.</p>
+            <p><strong>Part 1 — Initiation Payment:</strong> A partial payment is collected before the campaign launches. This covers onboarding, research, buyer profile development, ad creation, and campaign setup. This payment is non-refundable as the work is completed before appointments begin delivering.</p>
+            <p><strong>Part 2 — Completion Payment:</strong> The remaining balance is collected in the third or fourth week of the engagement, once the campaign is live and delivering results. The exact timing is agreed upon during onboarding.</p>
+            <p>Both amounts are discussed and finalised on the discovery call before any work begins. Nothing is charged without your prior agreement.</p>
+            <h4>4. Guarantee &amp; Refunds</h4>
+            <p>For every appointment we miss under the agreed target, we refund the per-appointment fee for each missed appointment. The initiation payment is non-refundable under any circumstances. See our Refund Policy for full details.</p>
+            <h4>5. Client Responsibilities</h4>
+            <p>You agree to provide accurate information about your properties and target buyers, respond to booked appointments in a timely manner, and maintain professional conduct with prospects we deliver.</p>
+            <h4>6. Limitation of Liability</h4>
+            <p>Edge Appointment is not liable for any indirect, incidental, or consequential damages arising from use of our services. Our liability is limited to the appointment fees paid for undelivered appointments.</p>
+            <h4>7. Governing Law</h4>
+            <p>These terms are governed by the laws of India. Disputes shall be resolved under the jurisdiction of courts in Uttar Pradesh, India.</p>
+            <h4>8. Contact</h4>
+            <p>Shadan Abbas Jafri | shadanbuisnessemail@gmail.com | Uttar Pradesh, India</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="refundModal" onclick="closeModalOnOverlay(event, 'refundModal')">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('refundModal')">&#215;</button>
+        <div class="modal-text">
+            <h3>Refund Policy</h3>
+            <p><strong>Edge Appointment | edgeappointment.com | Last Updated: May 2026</strong></p>
+            <h4>Our Guarantee</h4>
+            <p>We guarantee a minimum number of pre-qualified buyer appointments in 60 days as agreed during onboarding. All targets and per-appointment rates are discussed and finalised on the discovery call before work begins.</p>
+            <h4>Discrepancy Refund</h4>
+            <p>For every appointment we deliver under the agreed target, we will refund the per-appointment fee for each missed appointment. So if we agree on 50 appointments and deliver 45, you receive a refund for 5 appointments at the agreed per-appointment rate.</p>
+            <h4>Initiation Payment — Non-Refundable</h4>
+            <p>The initiation payment covers onboarding, research, buyer profile development, ad account setup, and campaign configuration. This payment is strictly non-refundable regardless of campaign outcome, as the work is performed upfront before appointments begin delivering.</p>
+            <h4>Completion Payment</h4>
+            <p>The completion payment is subject to the refund terms agreed upon during onboarding. All refund calculations are made at the end of the 60-day campaign period.</p>
+            <h4>What Counts as a Delivered Appointment</h4>
+            <p>An appointment is considered delivered when a qualified buyer is booked into your calendar with a confirmed date and time, their contact details provided, and they have acknowledged the booking via our confirmation sequence.</p>
+            <h4>Ad Spend</h4>
+            <p>Ad spend is paid directly to the ad platform and is entirely separate from our service fee. Ad spend is non-refundable as it is consumed by the platform during campaign execution.</p>
+            <h4>Refund Processing</h4>
+            <p>Refunds for missed appointments are calculated at the end of the 60-day campaign period and returned within 7 business days via the original payment method or agreed transfer method. Specific refund terms are finalised in your individual service agreement before work begins.</p>
+            <h4>Contact</h4>
+            <p>For any refund queries: shadanbuisnessemail@gmail.com</p>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Edge Appointment</h4>
+            <p>Real estate appointment setting agency helping agents get 50 pre-qualified buyer appointments in 60 days — on a pure pay-per-appointment basis.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#about">About</a>
+            <a href="#results">Why Us</a>
+            <a href="#process">Our Process</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>Shadan Abbas Jafri</p>
+            <p>Uttar Pradesh, India</p>
+            <a href="mailto:shadanbuisnessemail@gmail.com">shadanbuisnessemail@gmail.com</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&#169; 2026 Edge Appointment. All rights reserved.</p>
+        <div class="footer-links">
+            <span onclick="openModal('privacyModal')">Privacy Policy</span>
+            <span onclick="openModal('termsModal')">Terms &amp; Conditions</span>
+            <span onclick="openModal('refundModal')">Refund Policy</span>
+        </div>
+    </div>
 </footer>
 
+<div class="footer-disclaimer">
+    <div class="footer-disclaimer-text">
+        &#169; 2026 Edge Appointment. All rights reserved. This website is not affiliated with Google, Facebook, or Meta. Results mentioned on this page are targets based on our system and are not a guarantee of your specific results. Individual outcomes depend on your offer, market, ad spend, and execution. Appointment refunds apply only to missed appointments under the agreed target.
+    </div>
+</div>
+
 <script>
-    // Generate animated particles
-    function createParticles() {
-        const container = document.getElementById('particles-container');
-        const particleCount = 20;
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 5 + 's';
-            particle.style.animationDuration = (10 + Math.random() * 15) + 's';
-            container.appendChild(particle);
+    function closeMenu() {
+        const toggle = document.getElementById('menu-toggle');
+        if (toggle) toggle.checked = false;
+    }
+
+    function openModal(id) {
+        const target = document.getElementById(id);
+        if (target) target.classList.add('open');
+    }
+    
+    function closeModal(id) {
+        const target = document.getElementById(id);
+        if (target) target.classList.remove('open');
+    }
+    
+    function closeModalOnOverlay(e) {
+        if (e.target.classList.contains('modal-overlay')) {
+            e.target.classList.remove('open');
         }
     }
 
-    createParticles();
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+        }
+    });
 
-    document.querySelectorAll('.faq-question').forEach(q => {
-        q.addEventListener('click', () => {
-            const answer = q.nextElementSibling;
-            const isOpen = answer.style.maxHeight;
-            document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = null);
-            if (!isOpen) answer.style.maxHeight = answer.scrollHeight + 'px';
+    // Interactive Scroll Navigation Target Control Logic
+    function scrollToBooking() {
+        const targetSection = document.getElementById('contact');
+        if (targetSection) {
+            targetSection.classList.add('revealed-booking');
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const item = button.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const toggle = button.querySelector('span');
+            
+            if (item.classList.contains('active')) {
+                answer.style.maxHeight = '0';
+                item.classList.remove('active');
+                toggle.textContent = '+';
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                item.classList.add('active');
+                toggle.textContent = '−';
+            }
         });
     });
 
-    function startTimer() {
-        let endTime = sessionStorage.getItem('ea_timer') || (Date.now() + 82800000);
-        sessionStorage.setItem('ea_timer', endTime);
-        setInterval(() => {
-            let rem = Math.max(0, endTime - Date.now());
-            let h = Math.floor(rem / 3600000), m = Math.floor((rem % 3600000) / 60000), s = Math.floor((rem % 60000) / 1000);
-            document.getElementById('timer').textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-        }, 1000);
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        scrollObserver.observe(el);
+    });
+
+    function buildParticles() {
+        const container = document.getElementById('particles-container');
+        if (!container) return;
+        const total = 15;
+        for (let i = 0; i < total; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 10 + 's';
+            p.style.animationDuration = (12 + Math.random() * 8) + 's';
+            container.appendChild(p);
+        }
     }
-    startTimer();
+    buildParticles();
 </script>
+
 </body>
 </html>
