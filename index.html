@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edge Appointment | 50 Guaranteed Appointments</title>
+    <title>Edge Appointment | 10 Guaranteed Site Visits</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -182,13 +182,12 @@
 
         .process-section { padding: 100px 24px; border-top: 1px solid var(--border-light); }
         .process-section .container-text { margin-bottom: 60px; }
-        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: var(--max-grid); margin: 0 auto; }
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: var(--max-grid); margin: 0 auto; }
         .process-card { background: #F9FAFB; border: 1px solid var(--border-light); border-radius: 12px; padding: 32px 28px; text-align: left; }
         .step-num { width: 44px; height: 44px; background: var(--accent-dark); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 20px; }
         .process-card h4 { font-weight: 800; margin-bottom: 8px; font-size: 1rem; color: #000000; }
         .step-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
 
-        /* Modified Booking section properties to allow native scroll fade-in */
         .contact-placeholder-section { 
             border-top: 1px solid var(--border-light); 
             background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%); 
@@ -201,7 +200,6 @@
             will-change: opacity, transform;
         }
         
-        /* Retained custom handling state if accessed via buttons */
         .contact-placeholder-section.revealed-booking,
         .contact-placeholder-section.revealed {
             opacity: 1;
@@ -243,15 +241,7 @@
         .faq-answer p { padding: 0 24px 22px; font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; opacity: 0; transform: translateY(-15px) scale(0.98); transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2); will-change: transform, opacity; }
         .faq-item.active .faq-answer p { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.05s; }
 
-        .whatsapp-float {
-            position: fixed; bottom: 28px; right: 28px; z-index: 999;
-            background: #25D366; color: white; width: 56px; height: 56px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            text-decoration: none; font-size: 1.6rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5); }
 
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -304,7 +294,8 @@
             #menu-toggle:checked ~ .menu-icon span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
             #menu-toggle:checked ~ .menu-icon span:nth-child(2) { opacity: 0; }
             #menu-toggle:checked ~ .menu-icon span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-            .process-grid, .comparison-grid { grid-template-columns: 1fr; gap: 20px; }
+            .process-grid { grid-template-columns: 1fr; gap: 20px; }
+            .comparison-grid { grid-template-columns: 1fr; gap: 20px; }
             section { padding: 60px 20px; }
             .hero { padding: 80px 20px 40px; }
             .contact-placeholder-section { padding: 60px 16px; }
@@ -349,45 +340,27 @@
 
 <section class="hero">
     <div class="container-text animate-on-scroll">
-        <h1>Fill Your Calendar<span>50 Qualified Appointments Guaranteed</span></h1>
-        <p>We help real estate agents get 50 pre-qualified buyer appointments in 60 days.</p>
-        <span class="btn-premium-trigger" onclick="scrollToBooking();">Book a Call →</span><br>
-        <div class="hero-target">Tired of chasing unqualified leads and price sensitive buyers? Book a call for a solution.</div>
+        <h1>Book Property Visits<span>10 Budget-Qualified Site Visits Guaranteed</span></h1>
+        <p>We help real estate Agents and brokers secure 10 high-intent, Site visit within 45 days.</p>
+        <span class="btn-premium-trigger" onclick="scrollToBooking();">Book a Demo Call→</span><br>
+        <div class="hero-target">Tired of digital leads who ghost your calls? We put real buyers directly on your project site.</div>
     </div>
 </section>
 
 <section id="about" class="about-section">
     <div class="about-inner animate-on-scroll">
         <div class="about-badge">WHO WE ARE</div>
-        <h2>Built After Speaking With 45+ Real Estate Agents</h2>
-        <p>I'm Shadan Abbas Jafri, founder of Edge Appointment. Before building anything, I've spent weeks speaking directly with more than 45 real estate agents in India in Tier 1 cities — asking them about their biggest frustrations, what was killing their pipeline, and what they actually needed.</p>
-        <p>The answer was the same every time: unqualified leads and price sensitive buyers wasting their time. Agents weren't struggling with closings — they were struggling to get serious buyers in front of them in the first place.</p>
-        <p>That's exactly the gap Edge Appointment was built to fill. We don't do marketing. We don't sell you leads. We book qualified buyer appointments directly into your calendar — and you only pay for what we deliver.</p>
-        <div class="about-stats">
-            <div class="about-stat">
-                <span class="about-stat-number">45+</span>
-                <div class="about-stat-label">Agents Interviewed</div>
-            </div>
-            <div class="about-stat">
-                <span class="about-stat-number">50</span>
-                <div class="about-stat-label">Appointments Guaranteed</div>
-            </div>
-            <div class="about-stat">
-                <span class="about-stat-number">60</span>
-                <div class="about-stat-label">Days to Deliver</div>
-            </div>
-            <div class="about-stat">
-                <span class="about-stat-number">&#8377;0</span>
-                <div class="about-stat-label">Risk to You</div>
-            </div>
+        <h2>Built After Speaking With 45+ Real Estate Professionals</h2>
+        <p>I'm Shadan Abbas Jafri, founder of Edge Appointment. Before designing our systems, I spent weeks conducting diagnostic market interviews with more than 45 real estate leaders—analyzing their biggest growth obstacles, broken pipelines, and ultimate requirements.</p>
+        <p>The core frustration was unanimous: traditional digital marketing leads are low-quality, window-shoppers who turn off their phones or stay unverified. Teams aren't failing at closing property deals—they are struggling to secure serious investors and buyers at the physical property location.</p>
+        <p>That is exactly the structural gap Edge Appointment fills. We are not a software or a generic marketing retainership. We handle the heavy lifting, deploy custom-targeted advertising campaigns, filter inquiries using our strict internal desk, and book verified site visits directly into your calendar. You pay strictly for physical walk-ins delivered.</p>
         </div>
-    </div>
 </section>
 
 <section id="results" class="comparison-section">
     <div class="comparison-intro animate-on-scroll">
-        <h2>You're Not Paying For Clicks.<br>You're Paying For Conversations.</h2>
-        <p>Most agencies charge for marketing and walk away. We charge for results — qualified people sitting in your calendar, ready to buy.</p>
+        <h2>You're Not Paying For Impressions.<br>You're Paying For Physical Walk-ins.</h2>
+        <p>Most digital agencies charge monthly management fees and walk away. We match our performance to your business ledger—delivering qualified buyers directly onto your property ground.</p>
     </div>
     <div class="table-wrapper animate-on-scroll hover-pop">
         <table>
@@ -400,60 +373,60 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>What you pay for</td><td>Ad spend + monthly fee</td><td>Cost per lead</td><td class="edge-col-data">Booked appointments only</td></tr>
-                <tr><td>What you get</td><td>Traffic &amp; impressions</td><td>A list of contacts</td><td class="edge-col-data">Qualified calls in your calendar</td></tr>
-                <tr><td>Lead quality</td><td>Unknown</td><td>Unverified</td><td class="edge-col-data">Pre-qualified against your criteria</td></tr>
-                <tr><td>Conversation handling</td><td>No</td><td>No</td><td class="edge-col-data">Yes — we handle everything</td></tr>
-                <tr><td>Guarantee</td><td>None</td><td>None</td><td class="edge-col-data">50 Appointments Guaranteed</td></tr>
-                <tr><td>Your job</td><td>Figure out the rest</td><td>Chase &amp; qualify yourself</td><td class="edge-col-data">Show up and close</td></tr>
+                <tr><td>What you pay for</td><td>Ad spend + monthly fee</td><td>Cost per unverified lead</td><td class="edge-col-data">Confirmed site visits only</td></tr>
+                <tr><td>What you receive</td><td>Traffic &amp; generic clicks</td><td>A spreadsheet of contacts</td><td class="edge-col-data">Physical buyers on your site</td></tr>
+                <tr><td>Buyer qualification</td><td>Unknown</td><td>Completely unverified</td><td class="edge-col-data">5-Point checked (Budget &amp; Intent)</td></tr>
+                <tr><td>Lead nurturing &amp; calls</td><td>No</td><td>No</td><td class="edge-col-data">Yes — full phone screening handled</td></tr>
+                <tr><td>Performance Guarantee</td><td>None</td><td>None</td><td class="edge-col-data">10 Site Visits Guaranteed</td></tr>
+                <tr><td>Your operational job</td><td>Configure complex logic</td><td>Chase, call, and track yourself</td><td class="edge-col-data">Welcome buyers and close deals</td></tr>
             </tbody>
         </table>
     </div>
     <div class="comparison-grid">
         <div class="comparison-card animate-on-scroll hover-pop">
             <h3>The Old Way</h3>
-            <p>Chasing unverified leads, spending hours on the phone with tire-kickers, and paying monthly retainers for visibility instead of actual revenue.</p>
+            <p>Chasing cold database lists, running generic stock-image ads that attract tire-kickers, and burning monthly cash retainers for vanity metrics instead of actual property handovers.</p>
         </div>
         <div class="comparison-card edge animate-on-scroll hover-pop delay-1">
             <h3>The Edge Way</h3>
-            <p>Every lead is pre-vetted against your criteria. We handle objections and confirmations. You only focus on the qualified prospects sitting in your calendar.</p>
+            <p>Every single lead is rigorously screened via our internal calling desk. We verify purchase budgets, clarify immediate timelines, and supply coordinates/reminders. You only focus on the serious prospects arriving on-site.</p>
         </div>
     </div>
 </section>
 
 <section id="process" class="process-section">
     <div class="container-text animate-on-scroll">
-        <h2>Our 4 Step Pre-Qualified Appointment Process</h2>
-        <p>Everything handled for you. Zero effort on your end.</p>
+        <h2>Our 4-Step Done-For-You Site Visit Funnel</h2>
+        <p>Everything managed end-to-end by our team. Zero software or system setup required on your side.</p>
     </div>
     <div class="process-grid">
         <div class="process-card animate-on-scroll hover-pop">
             <div class="step-num">01</div>
-            <h4>Target &amp; Research</h4>
-            <p class="step-desc">We define your ideal buyer profile — budget, location, property type, purchase intent — so every ad targets the right person from day one.</p>
+            <h4>Target &amp; Script</h4>
+            <p class="step-desc">We clarify your ideal buyer parameters—budget tiers, layout locations, and investor profiles—designing high-converting ad scripts around raw property site assets.</p>
         </div>
         <div class="process-card animate-on-scroll hover-pop delay-1">
             <div class="step-num">02</div>
-            <h4>Run Targeted Ads</h4>
-            <p class="step-desc">We create and run Facebook and Instagram ads designed to attract serious buyers — not curious browsers or price shoppers.</p>
+            <h4>Deploy Campaigns</h4>
+            <p class="step-desc">We configure and manage high-intent Meta campaigns, leveraging custom geo-targeting to isolate genuine local and NRI buyers instead of window shoppers.</p>
         </div>
         <div class="process-card animate-on-scroll hover-pop delay-2">
             <div class="step-num">03</div>
-            <h4>Filter &amp; Qualify</h4>
-            <p class="step-desc">Every lead is screened through qualifying questions. Anyone without real budget or genuine purchase intent is filtered out before reaching you.</p>
+            <h4>5-Point Screening</h4>
+            <p class="step-desc">Every inquiry is called within 5 minutes by our internal desk. We filter out the un-qualified, verifying precise budgets, timelines, authority, and true purchase intent.</p>
         </div>
-        <div class="process-card animate-on-scroll hover-pop">
+        <div class="process-card animate-on-scroll hover-pop delay-3">
             <div class="step-num">04</div>
-            <h4>Book &amp; Confirm</h4>
-            <p class="step-desc">Qualified buyers are booked directly into your calendar. We send reminders and confirmations so they actually show up — ready to talk.</p>
+            <h4>Book &amp; Coordinate</h4>
+            <p class="step-desc">Verified buyers are scheduled into your calendar. We send location pins, coordinate weekend arrival timings, and issue reminders to maximize physical attendance.</p>
         </div>
     </div>
 </section>
 
 <section id="contact" class="contact-placeholder-section animate-on-scroll">
     <div class="container-text">
-        <h2>Ready to Fill Your Calendar?</h2>
-        <p>Select a slot directly inside our calendar framework down below to lock in your free 15-minute discovery call session instantly.</p>
+        <h2>Ready to Secure Your First 10 Site Visits?</h2>
+        <p>Select an available slot inside our tracking calendar below to schedule your free 15-minute diagnostic Demo Call instantly.</p>
     </div>
     <div class="inline-embed-outer-container">
         <div class="inline-embed-iframe-scrollbox">
@@ -480,262 +453,159 @@
     </div>
     <div class="faq-list">
         <div class="faq-item animate-on-scroll hover-pop">
-            <div class="faq-question">What exactly is appointment setting? <span>+</span></div>
-            <div class="faq-answer"><p>Appointment setting means we handle the entire process of finding serious buyers, qualifying them, and booking them directly into your calendar as confirmed appointments. By the time someone appears in your schedule, they already know who you are, what property you're offering, and they're genuinely interested. You just show up and have the conversation.</p></div>
+            <div class="faq-question">What exactly is a guaranteed site visit? <span>+</span></div>
+            <div class="faq-answer"><p>A guaranteed site visit means a prospective property buyer who has been rigorously run through our 5-point telephone verification framework (budget match, timeline clearance, specific location intent) physically shows up at your project site office or layout location at a pre-confirmed weekend or weekday slot. We track physical verification metrics with your site manager.</p></div>
         </div>
         <div class="faq-item animate-on-scroll hover-pop">
-            <div class="faq-question">How is this different from a lead gen agency? <span>+</span></div>
-            <div class="faq-answer"><p>A lead gen agency gives you a list of names and numbers and leaves the rest to you. You still have to call, qualify, follow up, and deal with people who aren't serious. We handle all of that. You only receive confirmed, pre-qualified appointments — people who have been screened and are ready to speak with you about buying a property.</p></div>
+            <div class="faq-question">How is this different from a traditional lead gen agency? <span>+</span></div>
+            <div class="faq-answer"><p>A standard lead gen agency uses generic forms to gather basic names and numbers, drops them into a spreadsheet, and leaves your sales team to chase them. We provide a completely hands-off Done-For-You service. We generate the interest, filter out tire-kickers through active phone outreach, confirm their location coordination, and only book them when they are ready to meet your on-site manager.</p></div>
         </div>
         <div class="faq-item animate-on-scroll hover-pop">
-            <div class="faq-question">How do you guarantee 50 appointments? <span>+</span></div>
-            <div class="faq-answer"><p>We run targeted Facebook and Instagram ads to attract buyers, qualify them through a screening process, and book only the serious ones into your calendar. Our guarantee is backed by a discrepancy refund — for every appointment we miss under the agreed target, you get a full per-appointment refund. You literally only pay for what we deliver.</p></div>
+            <div class="faq-question">How does the 10-visit guarantee work over 45 days? <span>+</span></div>
+            <div class="faq-answer"><p>We engineer specialized localized ad campaigns targeting high-yield investors and end-users. Our dedicated internal calling desk calls every single digital lead within minutes. If our comprehensive filtering systems fail to deliver 10 budget-qualified physical site walk-ins into your database ledger within our 45-day cycle, our performance guarantee ensures you get a full per-visit milestone refund for any booking we miss.</p></div>
         </div>
         <div class="faq-item animate-on-scroll hover-pop">
-            <div class="faq-question">What is the pricing and how does the refund work? <span>+</span></div>
-            <div class="faq-answer"><p>We work on a pure pay-per-appointment basis — you only pay for appointments we actually deliver. Our pricing is discussed on the discovery call based on your specific market and requirements. The appointment fee is protected by our discrepancy guarantee — for every appointment we miss under the agreed target, we refund you that amount. Ad spend is separate and goes directly to the ad platform.</p></div>
-        </div>
-        <div class="faq-item animate-on-scroll hover-pop">
-            <div class="faq-question">Who is this best suited for? <span>+</span></div>
-            <div class="faq-answer"><p>This works best for real estate agents in Tier 1 and Tier 2 cities who are actively selling properties and want a consistent flow of serious buyers without wasting time on price-sensitive leads. It's especially effective for agents who are ready to grow but are held back by inconsistent lead quality.</p></div>
-        </div>
-        <div class="faq-item animate-on-scroll hover-pop">
-            <div class="faq-question">How quickly will I get my first appointment? <span>+</span></div>
-            <div class="faq-answer"><p>Most clients see their first booked appointments within the first two weeks after onboarding. The first few days are spent on setup — understanding your property, target buyer, and campaign configuration. We go live shortly after and appointments start building from there.</p></div>
-        </div>
-        <div class="faq-item animate-on-scroll hover-pop">
-            <div class="faq-question">Will I need to hire a sales team? <span>+</span></div>
-            <div class="faq-answer"><p>No. Most agents start by handling appointments themselves. The appointments we deliver are already pre-qualified, so the conversations are more focused and less time-consuming than typical cold leads. As volume grows, you can expand your process if needed.</p></div>
-        </div>
-        <div class="faq-item animate-on-scroll hover-pop">
-            <div class="faq-question">How do I get started? <span>+</span></div>
-            <div class="faq-answer"><p>Click any of the booking buttons on this page. We'll schedule a free 15-minute discovery call where we understand your current situation — how many appointments you're getting, what your target buyer looks like, and where the core bottlenecks exist.</p></div>
+            <div class="faq-question">What is the investment structure and how does ad spend work? <span>+</span></div>
+            <div class="faq-answer"><p>We charge a fixed, non-refundable upfront setup fee of ₹20,000 to cover landing page infrastructure, custom script development, and dialing desk calibration. The ongoing performance fee is tied strictly to milestone delivery. Paid traffic advertising budget is funded separately by the client directly to Meta to maintain clear algorithm tracking. Full commercial parameters and risk-reversed structures are customized during our secondary Advisory Session.</p></div>
         </div>
     </div>
 </section>
 
-
-<div class="modal-overlay" id="privacyModal" onclick="closeModalOnOverlay(event, 'privacyModal')">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal('privacyModal')">&#215;</button>
-        <div class="modal-text">
-            <h3>Privacy Policy</h3>
-            <p><strong>Edge Appointment | edgeappointment.com | Last Updated: May 2026</strong></p>
-            <h4>1. Who We Are</h4>
-            <p>Edge Appointment is operated by Shadan Abbas Jafri, based in Uttar Pradesh, India. We provide real estate appointment setting services to agents across Tier 1 and Tier 2 cities in India. Contact: shadanbuisnessemail@gmail.com</p>
-            <h4>2. Information We Collect</h4>
-            <p>We collect only your name, email address, and phone number — provided when you book a call through Cal.com. We do not collect payment details, cookies, or sensitive data.</p>
-            <h4>3. How We Use Your Information</h4>
-            <ul>
-                <li>To confirm and manage your call booking</li>
-                <li>To communicate about our services</li>
-                <li>To send reminders for your scheduled call</li>
-                <li>To follow up after your consultation</li>
-            </ul>
-            <h4>4. Legal Basis</h4>
-            <p>We process data under India's Digital Personal Data Protection Act, 2023 (DPDP Act), on the basis of your consent and contractual necessity.</p>
-            <h4>5. Data Sharing</h4>
-            <p>We do not sell or rent your data. It may only be shared with Cal.com for booking management, or with legal authorities when required by Indian law.</p>
-            <h4>6. Your Rights</h4>
-            <p>You may access, correct, delete, or withdraw consent for your data at any time by contacting shadanbuisnessemail@gmail.com.</p>
-            <h4>7. Governing Law</h4>
-            <p>Governed by the laws of India. Jurisdiction: Uttar Pradesh courts.</p>
-        </div>
-    </div>
-</div>
-
-<div class="modal-overlay" id="termsModal" onclick="closeModalOnOverlay(event, 'termsModal')">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal('termsModal')">&#215;</button>
-        <div class="modal-text">
-            <h3>Terms &amp; Conditions</h3>
-            <p><strong>Edge Appointment | edgeappointment.com | Last Updated: May 2026</strong></p>
-            <h4>1. Services</h4>
-            <p>Edge Appointment provides real estate appointment setting services. By booking a discovery call or engaging our services, you agree to these terms.</p>
-            <h4>2. Service Scope</h4>
-            <p>We run targeted ad campaigns, filter and qualify leads, and book confirmed appointments into your calendar. We do not guarantee property sales, closings, or revenue outcomes. Our guarantee covers appointment delivery only.</p>
-            <h4>3. Payment Structure</h4>
-            <p>Our engagement operates on a two-part payment model agreed upon before work begins.</p>
-            <p><strong>Part 1 — Initiation Payment:</strong> A partial payment is collected before the campaign launches. This covers onboarding, research, buyer profile development, ad creation, and campaign setup. This payment is non-refundable as the work is completed before appointments begin delivering.</p>
-            <p><strong>Part 2 — Completion Payment:</strong> The remaining balance is collected in the third or fourth week of the engagement, once the campaign is live and delivering results. The exact timing is agreed upon during onboarding.</p>
-            <p>Both amounts are discussed and finalised on the discovery call before any work begins. Nothing is charged without your prior agreement.</p>
-            <h4>4. Guarantee &amp; Refunds</h4>
-            <p>For every appointment we miss under the agreed target, we refund the per-appointment fee for each missed appointment. The initiation payment is non-refundable under any circumstances. See our Refund Policy for full details.</p>
-            <h4>5. Client Responsibilities</h4>
-            <p>You agree to provide accurate information about your properties and target buyers, respond to booked appointments in a timely manner, and maintain professional conduct with prospects we deliver.</p>
-            <h4>6. Limitation of Liability</h4>
-            <p>Edge Appointment is not liable for any indirect, incidental, or consequential damages arising from use of our services. Our liability is limited to the appointment fees paid for undelivered appointments.</p>
-            <h4>7. Governing Law</h4>
-            <p>These terms are governed by the laws of India. Disputes shall be resolved under the jurisdiction of courts in Uttar Pradesh, India.</p>
-            <h4>8. Contact</h4>
-            <p>Shadan Abbas Jafri | shadanbuisnessemail@gmail.com | Uttar Pradesh, India</p>
-        </div>
-    </div>
-</div>
-
-<div class="modal-overlay" id="refundModal" onclick="closeModalOnOverlay(event, 'refundModal')">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal('refundModal')">&#215;</button>
-        <div class="modal-text">
-            <h3>Refund Policy</h3>
-            <p><strong>Edge Appointment | edgeappointment.com | Last Updated: May 2026</strong></p>
-            <h4>Our Guarantee</h4>
-            <p>We guarantee a minimum number of pre-qualified buyer appointments in 60 days as agreed during onboarding. All targets and per-appointment rates are discussed and finalised on the discovery call before work begins.</p>
-            <h4>Discrepancy Refund</h4>
-            <p>For every appointment we deliver under the agreed target, we will refund the per-appointment fee for each missed appointment. So if we agree on 50 appointments and deliver 45, you receive a refund for 5 appointments at the agreed per-appointment rate.</p>
-            <h4>Initiation Payment — Non-Refundable</h4>
-            <p>The initiation payment covers onboarding, research, buyer profile development, ad account setup, and campaign configuration. This payment is strictly non-refundable regardless of campaign outcome, as the work is performed upfront before appointments begin delivering.</p>
-            <h4>Completion Payment</h4>
-            <p>The completion payment is subject to the refund terms agreed upon during onboarding. All refund calculations are made at the end of the 60-day campaign period.</p>
-            <h4>What Counts as a Delivered Appointment</h4>
-            <p>An appointment is considered delivered when a qualified buyer is booked into your calendar with a confirmed date and time, their contact details provided, and they have acknowledged the booking via our confirmation sequence.</p>
-            <h4>Ad Spend</h4>
-            <p>Ad spend is paid directly to the ad platform and is entirely separate from our service fee. Ad spend is non-refundable as it is consumed by the platform during campaign execution.</p>
-            <h4>Refund Processing</h4>
-            <p>Refunds for missed appointments are calculated at the end of the 60-day campaign period and returned within 7 business days via the original payment method or agreed transfer method. Specific refund terms are finalised in your individual service agreement before work begins.</p>
-            <h4>Contact</h4>
-            <p>For any refund queries: shadanbuisnessemail@gmail.com</p>
-        </div>
-    </div>
-</div>
+<a href="https://wa.me/your-number-here" class="whatsapp-float" target="_blank">💬</a>
 
 <footer class="site-footer">
     <div class="footer-grid">
         <div class="footer-col">
             <h4>Edge Appointment</h4>
-            <p>Real estate appointment setting agency helping agents get 50 pre-qualified buyer appointments in 60 days — on a pure pay-per-appointment basis.</p>
+            <p>End-to-end performance-driven site visit acquisition engine for modern real estate professionals and property developers.</p>
         </div>
         <div class="footer-col">
-            <h4>Quick Links</h4>
+            <h4>Navigation</h4>
             <a href="#about">About</a>
             <a href="#results">Why Us</a>
-            <a href="#process">Our Process</a>
+            <a href="#process">Process</a>
             <a href="#faq">FAQ</a>
         </div>
         <div class="footer-col">
-            <h4>Contact</h4>
-            <p>Shadan Abbas Jafri</p>
-            <p>Uttar Pradesh, India</p>
-            <a href="mailto:shadanbuisnessemail@gmail.com">shadanbuisnessemail@gmail.com</a>
+            <h4>Contact &amp; Support</h4>
+            <p>Email: support@edgeappointment.com</p>
+            <p>Location: Uttar Pradesh, India</p>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&#169; 2026 Edge Appointment. All rights reserved.</p>
+        <p>&copy; 2026 Edge Appointment. All Rights Reserved.</p>
         <div class="footer-links">
-            <span onclick="openModal('privacyModal')">Privacy Policy</span>
-            <span onclick="openModal('termsModal')">Terms &amp; Conditions</span>
-            <span onclick="openModal('refundModal')">Refund Policy</span>
+            <span onclick="openModal('privacy')">Privacy Policy</span>
+            <span onclick="openModal('terms')">Terms of Service</span>
         </div>
     </div>
 </footer>
 
 <div class="footer-disclaimer">
     <div class="footer-disclaimer-text">
-        &#169; 2026 Edge Appointment. All rights reserved. This website is not affiliated with Google, Facebook, or Meta. Results mentioned on this page are targets based on our system and are not a guarantee of your specific results. Individual outcomes depend on your offer, market, ad spend, and execution. Appointment refunds apply only to missed appointments under the agreed target.
+        <strong>Disclaimer:</strong> Edge Appointment is an independent marketing strategy and performance-based appointment setting agency. We operate a "Done-For-You" lead filtering service and do not build independent enterprise internal software systems for clients. Case counts and optimization runways are highly contingent on localized property location pricing, regional RERA documentation clarity, and overall real estate market viability.
+    </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div id="modal-privacy" class="modal-overlay" onclick="closeModal('privacy')">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal('privacy')">&times;</button>
+        <div class="modal-text">
+            <h3>Privacy Policy</h3>
+            <p>Last updated: July 2026</p>
+            <h4>1. Data Collection</h4>
+            <p>We collect structural information provided directly by users when scheduling appointments through our third-party calendar software configurations, including names, contact numbers, corporate designations, and regional market coordinates.</p>
+            <h4>2. Data Usage</h4>
+            <p>Information gathered is deployed strictly to evaluate client eligibility for our site-visit acquisition programs, optimize advertising parameters, and structure client coordination strategies during scheduled advisory calls.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Terms of Service Modal -->
+<div id="modal-terms" class="modal-overlay" onclick="closeModal('terms')">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal('terms')">&times;</button>
+        <div class="modal-text">
+            <h3>Terms of Service</h3>
+            <p>Last updated: July 2026</p>
+            <h4>1. Service Definition</h4>
+            <p>Edge Appointment provides a performance-driven customer acquisition framework focusing on telephone filtering and weekend walkthrough orchestration. We maintain a strict focus on appointment generation metrics and do not offer internal tech stack development or CRM system engineering services.</p>
+            <h4>2. Performance Allocation &amp; Refunds</h4>
+            <p>Our 10-visit contractual guarantee is bound exclusively to our 45-day operational window. Milestone refunds are processed programmatically per verified walk-in deficit, provided the underlying ad spend accounts remain consistently funded to prevent algorithmic optimization stalls.</p>
+        </div>
     </div>
 </div>
 
 <script>
-    function closeMenu() {
-        const toggle = document.getElementById('menu-toggle');
-        if (toggle) toggle.checked = false;
-    }
-
-    function openModal(id) {
-        const target = document.getElementById(id);
-        if (target) target.classList.add('open');
-    }
-    
-    function closeModal(id) {
-        const target = document.getElementById(id);
-        if (target) target.classList.remove('open');
-    }
-    
-    function closeModalOnOverlay(e) {
-        if (e.target.classList.contains('modal-overlay')) {
-            e.target.classList.remove('open');
-        }
-    }
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
-        }
-    });
-
-    // Interactive Scroll Navigation Target Control Logic
+    // Smooth scroll navigation
     function scrollToBooking() {
-        const targetSection = document.getElementById('contact');
-        if (targetSection) {
-            targetSection.classList.add('revealed-booking');
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        const bookingSection = document.getElementById('contact');
+        if (bookingSection) {
+            bookingSection.scrollIntoView({ behavior: 'smooth' });
+            bookingSection.classList.add('revealed-booking');
+        }
+    }
+
+    // Close mobile toggle menu
+    function closeMenu() {
+        const menuToggle = document.getElementById('menu-toggle');
+        if (menuToggle) {
+            menuToggle.checked = false;
+        }
+    }
+
+    // Modal control logic
+    function openModal(id) {
+        const modal = document.getElementById('modal-' + id);
+        if (modal) modal.classList.add('open');
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById('modal-' + id);
+        if (modal) modal.classList.remove('open');
+    }
+
+    // Vanilla IntersectionObserver for scroll animations
+    document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll('.animate-on-scroll, .contact-placeholder-section');
+        
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
             });
-        }
-    }
+        }, {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
 
-    document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-            const item = button.parentElement;
-            const answer = item.querySelector('.faq-answer');
-            const toggle = button.querySelector('span');
-            
-            if (item.classList.contains('active')) {
-                answer.style.maxHeight = '0';
-                item.classList.remove('active');
-                toggle.textContent = '+';
-            } else {
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-                item.classList.add('active');
-                toggle.textContent = '−';
-            }
+        animatedElements.forEach(el => scrollObserver.observe(el));
+
+        // Accordion FAQ toggle logic
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    answer.style.maxHeight = null;
+                } else {
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        i.classList.remove('active');
+                        i.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
         });
     });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-    const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                scrollObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        scrollObserver.observe(el);
-    });
-
-    function buildParticles() {
-        const container = document.getElementById('particles-container');
-        if (!container) return;
-        const total = 15;
-        for (let i = 0; i < total; i++) {
-            const p = document.createElement('div');
-            p.classList.add('particle');
-            p.style.left = Math.random() * 100 + '%';
-            p.style.top = Math.random() * 100 + '%';
-            p.style.animationDelay = Math.random() * 10 + 's';
-            p.style.animationDuration = (12 + Math.random() * 8) + 's';
-            container.appendChild(p);
-        }
-    }
-    buildParticles();
 </script>
 
 </body>
